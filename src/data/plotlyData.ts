@@ -220,3 +220,64 @@ export const FAQS = [
       "No. Bank collection can be switched on or off per housing society. Societies that start with manual bank deposits or cash counters can issue Plotly receipts and turn on direct bank voucher lookup whenever ready.",
   },
 ];
+
+export const TESTIMONIALS = [
+  {
+    quote:
+      "Before this, our recovery desk spent three days every month matching bank deposit slips against Excel sheets. Now Paid means bank confirmed, and Awaiting shows us exactly whom to call.",
+    author: "Tariq Mahmood",
+    role: "Operational Officer",
+    society: "Al-Noor Homes Scheme · 620 Plots",
+    metric: "3 days → 10 mins monthly reconciliation",
+  },
+  {
+    quote:
+      "Dealers used to call the office to check if a corner plot was free, and buyers called for balances. With unique plot locking and the phone-login portal, those calls dropped almost to zero.",
+    author: "Kamran Siddiqui",
+    role: "Accounts & Recovery Lead",
+    society: "Margalla Enclave City · 1,150 Plots",
+    metric: "0 double-bookings across 4 blocks",
+  },
+];
+
+export const PRICING_PLANS = [
+  {
+    name: "Starter Scheme",
+    price: "PKR 8,000",
+    period: "/month",
+    capacity: "Up to 150 plots",
+    summary: "Ideal for a single housing block or new scheme replacing Excel registers.",
+    highlights: [
+      "Plot inventory, bookings & consumer vouchers",
+      "Paid vs Awaiting installment ledger",
+      "Role-based staff access + Customer Portal",
+    ],
+    featured: false,
+  },
+  {
+    name: "Growing Society",
+    price: "Custom",
+    period: "quote",
+    capacity: "150 – 1,500 plots",
+    summary: "For established societies needing bank sync, dealer commissions, and full cash flow.",
+    highlights: [
+      "Direct bank voucher confirmation sync",
+      "CNIC-unique dealer commissions & payroll",
+      "Petty cash with receipt photos + 14 PDFs",
+    ],
+    featured: true,
+  },
+  {
+    name: "Multi-Scheme Developer",
+    price: "Custom",
+    period: "quote",
+    capacity: "Unlimited schemes & plots",
+    summary: "Run Homes and City schemes under one roof with isolated society workspaces.",
+    highlights: [
+      "Multi-project setup, loans & land investments",
+      "Dedicated onboarding & data migration",
+      "Priority WhatsApp & office team training",
+    ],
+    featured: false,
+  },
+];

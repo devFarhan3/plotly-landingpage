@@ -198,10 +198,10 @@ export function DemoModal({ open, initialMode = "portal", onClose }: DemoModalPr
           <form onSubmit={handleSubmit} className="mt-5 space-y-4">
             <div>
               <h2 id="portal-modal-title" className="font-display-h2 text-[28px] text-[#0B2E2A]">
-                Book a walkthrough.
+                Book a 10-min walkthrough.
               </h2>
               <p className="mt-1.5 text-[15px] text-[#4A5653]">
-                See how your blocks, consumer vouchers, and bank confirmations run in one place.
+                See a live demo for your society and get exact pricing for your plot count.
               </p>
             </div>
 

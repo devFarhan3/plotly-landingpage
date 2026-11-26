@@ -46,7 +46,9 @@ export function JsonLd() {
     ],
     offers: {
       "@type": "Offer",
+      price: "8000",
       priceCurrency: "PKR",
+      description: "Plans start from PKR 8,000/month for up to 150 plots.",
       availability: "https://schema.org/InStock",
     },
   };
