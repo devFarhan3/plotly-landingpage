@@ -1,0 +1,30 @@
+# Plotly — Plot & Housing Society Software for Pakistan
+> Every plot. Every rupee. Accounted for.
+
+Plotly is web-based housing society and plot developer software built for Pakistan. It replaces scattered registers and Excel spreadsheets with one central, role-controlled ledger covering plots, customer bookings, monthly installments, bank-confirmed vouchers, refunds, dealer commissions, staff salaries, petty cash, loans, land investments, and a self-service customer portal.
+
+## Key Business Rules
+- **Bank-confirmed Paid state**: Money counts as `Paid` only after bank confirmation via the voucher's unique consumer number. Unconfirmed vouchers remain `Awaiting` so collection figures are never overstated.
+- **Zero double-booking**: Project names are unique, block names are unique inside a project, and plot numbers are unique inside a block. Booked plots lock immediately and only return to available inventory upon a formal refund/return.
+- **Automatic voucher generation**: Saving a booking, monthly installment, or extra charge (Development Charges, Transfer Fee, Possession Charges, Membership Fee) creates a printable voucher with a unique consumer number.
+- **One-step cancellation & refund**: Cancelling a booking calculates confirmed payments minus deductions, marks the booking and entries `(Returned)` without distorting historical collections, releases the plot, and tracks refund payouts in parts.
+- **CNIC-deduplicated dealers**: Dealer commissions automatically link to or create a dealer record by CNIC so duplicate dealer entries do not occur.
+
+## Core Modules (14 Areas)
+1. Dashboard (role-scoped summary figures)
+2. Access Control (custom staff roles and screen/action permissions)
+3. Definition / Setup (projects, blocks, plot sizes, charge types, payment methods, expense types)
+4. Plot Management (master plot inventory and booked/available state)
+5. Customer Management (bookings, discounts, advances, monthly installments, extra charges, vouchers)
+6. Bank Payment Collection (direct bank voucher lookup and confirmation; toggleable per society)
+7. Refund & Release (net refund math, installment payouts, automatic plot release)
+8. Dealer Commission (CNIC-unique dealer tracking by project, block, plot)
+9. Employee Management (salary history and monthly payroll)
+10. Petty Cash Expenses (categorized expenses with attached receipt photos in PDF reports)
+11. Society Loans (borrower tracking by unique phone number and loan repayments)
+12. Land Investment (seller records, witnesses, and installment payments for land purchases)
+13. Reports (14 screen and printable PDF reports including Society Cash Flow)
+14. Customer Portal (phone-number login for buyers to inspect plots, installments, charges, and print PDFs)
+
+## Extended Documentation
+- Full specification summary: /llms-full.txt

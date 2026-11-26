@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Brand Palette — Plotly Brand Identity */
+  --color-cypress: #0B2E2A;
+  --color-pine: #135047;
+  --color-fern: #1B7C63;
+  --color-peg: #F2A93B;
+  --color-paper: #F5F4EE;
+  --color-ink: #0F1C1A;
+  --color-ink-muted: #4A5653;
+  --color-ink-subtle: #5B6663;
+  --color-border: #DAD8CC;
+
+  /* Status Chips */
+  --color-paid-bg: #E3F3EE;
+  --color-paid-fg: #135047;
+  --color-awaiting-bg: #FDF1DC;
+  --color-awaiting-fg: #8C5B0D;
+  --color-returned-bg: #ECEAE2;
+  --color-returned-fg: #4A5653;
+
+  /* Typography */
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --brand-900: #0B2E2A;
+  --brand-700: #135047;
+  --brand-500: #1B7C63;
+  --accent: #F2A93B;
+  --bg: #F5F4EE;
+  --text: #0F1C1A;
+  --border-subtle: #DAD8CC;
+}
+
+html {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+body {
+  background-color: #F5F4EE;
+  color: #0F1C1A;
+  font-feature-settings: "tnum" 1, "cv02" 1, "cv03" 1;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Display typography matching Brand Identity PDF 03/04 */
+.font-display-h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.03;
+}
+
+.font-display-h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.09;
+}
+
+.font-display-h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* Subtle paper grain grid overlay */
+.survey-grid {
+  background-image:
+    linear-gradient(to right, rgba(11, 46, 42, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 46, 42, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.survey-grid-dark {
+  background-image:
+    linear-gradient(to right, rgba(245, 244, 238, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(245, 244, 238, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Marquee / ribbon smooth hardware acceleration */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .sw-motion {
+    animation: none !important;
+    transition: none !important;
+  }
+}

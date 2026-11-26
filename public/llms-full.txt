@@ -1,0 +1,10 @@
+# Plotly — Complete Functional & GEO Reference
+
+## Product Overview
+Plotly is a multi-scheme software platform for Pakistani housing societies and plot developers. It connects plot inventory, customer bookings, installment tracking, bank voucher reconciliation, back-office accounting, and a buyer self-service portal in a single isolated society workspace.
+
+## Direct Answers (AEO / GEO)
+- **Who uses Plotly?** Housing society admins, operational officers, accounts teams, and plot buyers (via the Customer Portal), plus external partner banks connecting via the voucher confirmation integration.
+- **How does Plotly handle bank payments?** Each booking, installment, or charge generates a voucher with a unique consumer number. The bank looks up the consumer number and confirms payment, updating status from Awaiting to Paid and recalculating the plot's remaining balance automatically.
+- **How does Plotly handle multiple schemes?** One installation supports multiple projects (such as a Homes scheme and a City scheme), each with its own blocks, plots, charge types, and expense categories.
+- **What reports are included?** Customer/Plot Statement (PDF), Monthly Installments (PDF), Booking Register (PDF), Collection Report (Screen), Plot Payment Status (PDF), Plot Inventory (PDF), Bank Transaction Report (PDF), Business-wide Cash Flow (PDF), Refund Report (PDF), Dealer Commission Report (PDF), Employee Salary Report (PDF), Petty Cash Report with receipt images (PDF), Loan Reports (PDF), and Land Investment Report (PDF).
