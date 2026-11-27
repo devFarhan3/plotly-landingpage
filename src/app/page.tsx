@@ -19,6 +19,7 @@ import { PlotlyLogo } from "@/components/PlotlyLogo";
 import { ScrollWorldSection } from "@/components/ScrollWorldSection";
 import { InteractiveLedgerPreview } from "@/components/InteractiveLedgerPreview";
 import { ModulesInteractiveIndex } from "@/components/ModulesInteractiveIndex";
+import { PlotInventoryComparison } from "@/components/PlotInventoryComparison";
 import { DemoModal, type ModalMode } from "@/components/DemoModal";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { JsonLd } from "@/components/JsonLd";
@@ -33,6 +34,10 @@ export default function HomePage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalMode, setModalMode] = useState<ModalMode>("portal");
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [footerName, setFooterName] = useState("");
+  const [footerSociety, setFooterSociety] = useState("");
+  const [footerPhone, setFooterPhone] = useState("");
+  const [footerSent, setFooterSent] = useState(false);
   const pageRef = useRef<HTMLDivElement>(null);
   const heroVisualRef = useRef<HTMLDivElement>(null);
   const [spot, setSpot] = useState({ x: 50, y: 50, active: false });
@@ -349,6 +354,52 @@ export default function HomePage() {
         </section>
 
         {/* ============================================================
+            4-COLUMN TRUST STRIP — Immediate Scannability Below Hero
+           ============================================================ */}
+        <section aria-label="Core guarantees" className="border-y border-[#DAD8CC] bg-[#FFFFFF]/70">
+          <div className="mx-auto max-w-[1360px] px-4 sm:px-6 lg:px-8 py-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+              <div className="flex items-start gap-3">
+                <ShieldCheck className="h-5 w-5 text-[#1B7C63] shrink-0 mt-0.5" />
+                <div>
+                  <div className="text-[14px] font-semibold text-[#0B2E2A]">Bank-Locked Paid</div>
+                  <p className="text-[13px] text-[#4A5653] mt-0.5">
+                    Collection totals update only after bank confirmation.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Building2 className="h-5 w-5 text-[#1B7C63] shrink-0 mt-0.5" />
+                <div>
+                  <div className="text-[14px] font-semibold text-[#0B2E2A]">Zero Double Bookings</div>
+                  <p className="text-[13px] text-[#4A5653] mt-0.5">
+                    One active file per plot with full transfer history.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <FileCheck2 className="h-5 w-5 text-[#1B7C63] shrink-0 mt-0.5" />
+                <div>
+                  <div className="text-[14px] font-semibold text-[#0B2E2A]">14 Audit-Ready PDFs</div>
+                  <p className="text-[13px] text-[#4A5653] mt-0.5">
+                    Vouchers, plot ledgers, defaulters &amp; bank statements.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Users className="h-5 w-5 text-[#1B7C63] shrink-0 mt-0.5" />
+                <div>
+                  <div className="text-[14px] font-semibold text-[#0B2E2A]">1-Day Society Setup</div>
+                  <p className="text-[13px] text-[#4A5653] mt-0.5">
+                    Import existing Excel plot sheets and go live fast.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ============================================================
             OVERVIEW / ABOUT STATEMENT — Precision-Drop Word Scrub + Soltera Proof Cards
            ============================================================ */}
         <section id="overview" className="py-20 sm:py-28 bg-[#F5F4EE]">
@@ -537,6 +588,11 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        {/* ============================================================
+            BLOCK INVENTORY GRID & EXCEL VS PLOTLY COMPARISON
+           ============================================================ */}
+        <PlotInventoryComparison onBookDemo={openDemo} />
 
         {/* ============================================================
             MODULES & 14 REPORTS — Precision-Drop Hairline Rows + Hover Preview
@@ -750,51 +806,124 @@ export default function HomePage() {
               </h2>
             </div>
 
-            <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-between gap-5">
-              <p className="text-[16px] text-[#F5F4EE]/75 lg:text-right max-w-sm">
-                See a live demo for your society in 10 minutes. Plans start from PKR 8,000/month.
-              </p>
-              <div className="flex flex-wrap items-center gap-3">
-                <button
-                  type="button"
-                  onClick={openDemo}
-                  className="group inline-flex items-center gap-3 rounded-full bg-[#F2A93B] hover:bg-[#e59b2d] text-[#0B2E2A] pl-6 pr-2.5 py-2 text-[15px] font-semibold transition-all cursor-pointer shadow-[0_8px_28px_rgba(242,169,59,0.28)]"
-                >
-                  <span>Book a 10-min walkthrough</span>
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#0B2E2A] text-[#F5F4EE] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                    <ArrowUpRight className="h-4 w-4" />
-                  </span>
-                </button>
-                <button
-                  type="button"
-                  onClick={openPortal}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/25 hover:border-white/55 px-5 py-3 text-[14px] font-medium text-[#F5F4EE] transition-colors cursor-pointer"
-                >
-                  <span>Open System Portal</span>
-                </button>
+            <div className="lg:col-span-5">
+              <div className="rounded-[24px] border border-white/15 bg-[#135047]/70 backdrop-blur-sm p-6 shadow-[0_20px_50px_rgba(0,0,0,0.25)]">
+                {footerSent ? (
+                  <div className="py-4 text-center">
+                    <CheckCircle2 className="h-10 w-10 text-[#F2A93B] mx-auto" />
+                    <h3 className="font-display-h3 mt-3 text-[20px] text-[#F5F4EE]">
+                      Walkthrough requested
+                    </h3>
+                    <p className="mt-1.5 text-[14px] text-[#F5F4EE]/75">
+                      We&apos;ll reach out on <span className="font-semibold text-[#F5F4EE]">{footerPhone || "WhatsApp"}</span> shortly to schedule your 10-minute demo.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setFooterSent(false);
+                        setFooterName("");
+                        setFooterSociety("");
+                        setFooterPhone("");
+                      }}
+                      className="mt-4 text-[13px] font-semibold text-[#F2A93B] hover:underline underline-offset-4 cursor-pointer"
+                    >
+                      Send another request
+                    </button>
+                  </div>
+                ) : (
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      setFooterSent(true);
+                    }}
+                    className="space-y-3"
+                  >
+                    <div className="flex items-center justify-between gap-2 mb-1">
+                      <span className="text-[12px] font-semibold uppercase tracking-[0.08em] text-[#F2A93B]">
+                        30-Second Walkthrough Request
+                      </span>
+                      <span className="text-[12px] text-[#F5F4EE]/70 tabular-nums">
+                        From PKR 8,000/mo
+                      </span>
+                    </div>
+                    <input
+                      type="text"
+                      required
+                      value={footerName}
+                      onChange={(e) => setFooterName(e.target.value)}
+                      placeholder="Your name"
+                      aria-label="Your name"
+                      className="w-full rounded-xl border border-white/15 bg-[#0B2E2A]/80 px-4 py-2.5 text-[14px] text-[#F5F4EE] placeholder:text-[#F5F4EE]/45 focus:outline-none focus:ring-2 focus:ring-[#F2A93B]"
+                    />
+                    <input
+                      type="text"
+                      required
+                      value={footerSociety}
+                      onChange={(e) => setFooterSociety(e.target.value)}
+                      placeholder="Society name & city (e.g. Green Valley, Lahore)"
+                      aria-label="Society name and city"
+                      className="w-full rounded-xl border border-white/15 bg-[#0B2E2A]/80 px-4 py-2.5 text-[14px] text-[#F5F4EE] placeholder:text-[#F5F4EE]/45 focus:outline-none focus:ring-2 focus:ring-[#F2A93B]"
+                    />
+                    <input
+                      type="tel"
+                      required
+                      value={footerPhone}
+                      onChange={(e) => setFooterPhone(e.target.value)}
+                      placeholder="WhatsApp / Phone (e.g. 0300 1234567)"
+                      aria-label="WhatsApp or phone number"
+                      className="w-full rounded-xl border border-white/15 bg-[#0B2E2A]/80 px-4 py-2.5 text-[14px] text-[#F5F4EE] placeholder:text-[#F5F4EE]/45 focus:outline-none focus:ring-2 focus:ring-[#F2A93B]"
+                    />
+                    <div className="pt-1 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+                      <button
+                        type="submit"
+                        className="flex-1 group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#F2A93B] hover:bg-[#e59b2d] text-[#0B2E2A] px-5 py-2.5 text-[14px] font-semibold transition-all cursor-pointer shadow-[0_8px_28px_rgba(242,169,59,0.28)]"
+                      >
+                        <span>Book 10-min walkthrough</span>
+                        <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={openPortal}
+                        className="inline-flex items-center justify-center rounded-full border border-white/25 hover:border-white/55 px-4 py-2.5 text-[13px] font-medium text-[#F5F4EE] transition-colors cursor-pointer"
+                      >
+                        Open Portal
+                      </button>
+                    </div>
+                  </form>
+                )}
               </div>
             </div>
           </div>
 
           <div className="mt-8 flex flex-wrap items-center justify-between gap-4 text-[13px] text-[#F5F4EE]/65">
             <div className="flex flex-wrap items-center gap-6">
-              <a href="#overview" className="hover:text-[#F5F4EE] transition-colors">
-                Overview
+              <a href="#workflow" className="hover:text-[#F5F4EE] transition-colors">
+                How It Works
               </a>
-              <a href="#scroll-world" className="hover:text-[#F5F4EE] transition-colors">
-                Scroll World
+              <a href="#modules" className="hover:text-[#F5F4EE] transition-colors">
+                Modules &amp; PDFs
               </a>
               <a href="#ledger" className="hover:text-[#F5F4EE] transition-colors">
                 Ledger Preview
               </a>
-              <a href="#modules" className="hover:text-[#F5F4EE] transition-colors">
-                Modules & PDFs
+              <a href="#pricing" className="hover:text-[#F5F4EE] transition-colors">
+                Pricing
               </a>
               <a href="#faq" className="hover:text-[#F5F4EE] transition-colors">
                 FAQ
               </a>
             </div>
-            <div>© {new Date().getFullYear()} Plotly · Plot & Housing Society Software for Pakistan</div>
+            <div>
+              © {new Date().getFullYear()} Plotly. All rights reserved. Powered by{" "}
+              <a
+                href="https://www.algosoltech.com/"
+                target="_blank"
+                rel="noopener"
+                className="font-semibold text-[#F5F4EE] hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F2A93B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B2E2A] rounded-sm transition-colors"
+              >
+                Algorithm Solutions &amp; Tech
+              </a>
+            </div>
           </div>
         </div>
       </footer>

@@ -10,11 +10,10 @@ interface NavbarProps {
 }
 
 const NAV_LINKS = [
-  { label: "Overview", href: "#overview" },
-  { label: "Scroll World", href: "#scroll-world" },
-  { label: "Ledger", href: "#ledger" },
   { label: "How It Works", href: "#workflow" },
-  { label: "Reports", href: "#modules" },
+  { label: "Modules", href: "#modules" },
+  { label: "Ledger", href: "#ledger" },
+  { label: "Pricing", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
 ];
 
